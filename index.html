@@ -1,0 +1,95 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Medical Claims Fraud Detection Dashboard</title>
+  <style>
+    body { font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header { background: #4CAF50; color: white; padding: 15px; text-align: center; }
+    nav { background: #f2f2f2; padding: 10px; text-align: center; }
+    nav a { margin: 0 15px; text-decoration: none; color: #333; font-weight: bold; }
+    section { padding: 20px; }
+    .chart { margin: 20px auto; text-align: center; }
+    .chart img { max-width: 100%; height: auto; border: 1px solid #ddd; padding: 5px; }
+    footer { background: #ddd; text-align: center; padding: 10px; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Medical Claims Fraud Detection Dashboard</h1>
+  </header>
+  <nav>
+    <a href="#overview">Overview</a>
+    <a href="#random-forest">Random Forest</a>
+    <a href="#isolation-forest">Isolation Forest</a>
+    <a href="#dbscan">DBSCAN</a>
+  </nav>
+  <section id="overview">
+    <h2>Overview</h2>
+    <p>This dashboard presents a brief analysis of a medical claims fraud detection project. The analysis includes:</p>
+    <ul>
+      <li>Supervised classification using Random Forest</li>
+      <li>Unsupervised anomaly detection using Isolation Forest</li>
+      <li>Clustering-based outlier detection using DBSCAN</li>
+    </ul>
+    <p>Data was simulated to mimic a real-world scenario with 1,000 samples, 10 features, and a 5% fraud rate.</p>
+    <div class="chart">
+      <h3>Class Distribution</h3>
+      <img src="images/class_distribution.png" alt="Class Distribution">
+    </div>
+  </section>
+  <section id="random-forest">
+    <h2>Random Forest Analysis</h2>
+    <p>The Random Forest model was trained to classify fraudulent claims using balanced class weights. Key evaluation metrics include the confusion matrix and ROC curve.</p>
+    <div class="chart">
+      <h3>Confusion Matrix</h3>
+      <img src="images/confusion_matrix.png" alt="Confusion Matrix">
+    </div>
+    <div class="chart">
+      <h3>ROC Curve</h3>
+      <img src="images/roc_curve.png" alt="ROC Curve">
+    </div>
+  </section>
+  <section id="isolation-forest">
+    <h2>Isolation Forest Analysis</h2>
+    <p>The Isolation Forest method detects anomalies without using labels during training. It flags potential fraudulent claims based on unusual patterns in the data.</p>
+    <div class="chart">
+      <h3>Isolation Forest Report</h3>
+      <pre>              precision    recall  f1-score   support
+
+           0       0.95      0.96      0.95       284
+           1       0.08      0.06      0.07        16
+
+    accuracy                           0.91       300
+   macro avg       0.52      0.51      0.51       300
+weighted avg       0.90      0.91      0.91       300
+</pre>
+    </div>
+  </section>
+  <section id="dbscan">
+    <h2>DBSCAN Clustering Analysis</h2>
+    <p>DBSCAN clusters similar claims together while identifying noise points, which can correspond to suspicious or fraudulent claims.</p>
+    <div class="chart">
+      <h3>DBSCAN Clustering</h3>
+      <img src="images/dbscan_clustering.png" alt="DBSCAN Clustering">
+    </div>
+    <div class="chart">
+      <h3>DBSCAN Report</h3>
+      <pre>              precision    recall  f1-score   support
+
+           0       0.00      0.00      0.00       946
+           1       0.05      1.00      0.10        54
+
+    accuracy                           0.05      1000
+   macro avg       0.03      0.50      0.05      1000
+weighted avg       0.00      0.05      0.01      1000
+</pre>
+    </div>
+  </section>
+  <footer>
+    <p>&copy; 2025 Fraud Detection Dashboard. All rights reserved.</p>
+  </footer>
+</body>
+</html>
